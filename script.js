@@ -16,13 +16,11 @@ if (menuBtn && navLinks) {
         if (navLinks.classList.contains("active")) {
 
             icon.classList.remove("fa-bars");
-
             icon.classList.add("fa-xmark");
 
         } else {
 
             icon.classList.remove("fa-xmark");
-
             icon.classList.add("fa-bars");
 
         }
@@ -30,7 +28,7 @@ if (menuBtn && navLinks) {
     });
 
 
-    /* Close mobile menu after clicking */
+    /* Close mobile menu after clicking a link */
 
     document.querySelectorAll(".nav-links a").forEach(link => {
 
@@ -41,7 +39,6 @@ if (menuBtn && navLinks) {
             const icon = menuBtn.querySelector("i");
 
             icon.classList.remove("fa-xmark");
-
             icon.classList.add("fa-bars");
 
         });
@@ -52,111 +49,83 @@ if (menuBtn && navLinks) {
 
 
 /* =========================
-   CONTACT FORM - FORMSPREE
+   CONTACT FORM
+   FORMSPREE
 ========================= */
 
-const contactForm =
-    document.getElementById("contact-form");
-
-const formMessage =
-    document.getElementById("form-message");
-
+const contactForm = document.getElementById("contact-form");
+const formMessage = document.getElementById("form-message");
 
 if (contactForm) {
 
-    contactForm.addEventListener(
-        "submit",
-        async function (event) {
+    contactForm.addEventListener("submit", async function (event) {
 
-            event.preventDefault();
+        event.preventDefault();
 
+        if (formMessage) {
 
-            const submitButton =
-                contactForm.querySelector(
-                    'button[type="submit"]'
-                );
+            formMessage.textContent = "Sending message...";
+            formMessage.style.color = "#7c3aed";
 
+        }
 
-            const originalButtonText =
-                submitButton.innerHTML;
+        const formData = new FormData(contactForm);
 
+        try {
 
-            /* Show sending message */
+            const response = await fetch(contactForm.action, {
 
-            submitButton.disabled = true;
+                method: "POST",
 
-            submitButton.innerHTML =
-                'Sending... <i class="fas fa-spinner fa-spin"></i>';
+                body: formData,
 
-            formMessage.textContent =
-                "";
+                headers: {
+                    "Accept": "application/json"
+                }
 
-
-            const formData =
-                new FormData(contactForm);
+            });
 
 
-            try {
+            if (response.ok) {
 
-                const response =
-                    await fetch(
-                        contactForm.action,
-                        {
-                            method: "POST",
-
-                            body: formData,
-
-                            headers: {
-                                "Accept":
-                                    "application/json"
-                            }
-                        }
-                    );
-
-
-                if (response.ok) {
+                if (formMessage) {
 
                     formMessage.textContent =
-                        "Thank you! Your message has been sent successfully.";
+                        "Message sent successfully! Thank you for contacting me.";
 
-                    formMessage.style.color =
-                        "#16a34a";
+                    formMessage.style.color = "#16a34a";
 
+                }
 
-                    /* Clear form */
+                contactForm.reset();
 
-                    contactForm.reset();
+            } else {
 
-                } else {
+                if (formMessage) {
 
                     formMessage.textContent =
                         "Something went wrong. Please try again.";
 
-                    formMessage.style.color =
-                        "#dc2626";
+                    formMessage.style.color = "#dc2626";
 
                 }
 
+            }
 
-            } catch (error) {
+        } catch (error) {
+
+            if (formMessage) {
 
                 formMessage.textContent =
                     "Unable to send the message. Please try again.";
 
-                formMessage.style.color =
-                    "#dc2626";
+                formMessage.style.color = "#dc2626";
 
             }
 
+        }
 
-            /* Restore button */
-
-            submitButton.disabled = false;
-
-            submitButton.innerHTML =
-                originalButtonText;
-
-        });
+    });
 
 }
 
@@ -165,93 +134,38 @@ if (contactForm) {
    SCROLL ANIMATION
 ========================= */
 
-const observer =
-    new IntersectionObserver(
-
-        (entries) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("show");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.15
-        }
-
-    );
+const animatedElements = document.querySelectorAll(
+    ".skill-card, .project-card, .certification-card, .timeline-content"
+);
 
 
-document
-    .querySelectorAll(
-        ".skill-card, .project-card, .certification-card, .timeline-content"
-    )
-    .forEach(element => {
+const observer = new IntersectionObserver(
 
-        observer.observe(element);
+    (entries) => {
 
-    });
+        entries.forEach(entry => {
 
+            if (entry.isIntersecting) {
 
-/* =========================
-   ACTIVE NAVIGATION
-========================= */
+                entry.target.classList.add("show");
 
-const sections =
-    document.querySelectorAll("section[id]");
+            }
 
-const navigationLinks =
-    document.querySelectorAll(".nav-links a");
+        });
 
+    },
 
-window.addEventListener("scroll", () => {
+    {
+        threshold: 0.15
+    }
 
-    let currentSection = "";
-
-    sections.forEach(section => {
-
-        const sectionTop =
-            section.offsetTop - 120;
-
-        const sectionHeight =
-            section.offsetHeight;
-
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY <
-            sectionTop + sectionHeight
-        ) {
-
-            currentSection =
-                section.getAttribute("id");
-
-        }
-
-    });
+);
 
 
-    navigationLinks.forEach(link => {
+animatedElements.forEach(element => {
 
-        link.classList.remove("active");
+    element.classList.add("animate-on-scroll");
 
-        if (
-            link.getAttribute("href") ===
-            `#${currentSection}`
-        ) {
-
-            link.classList.add("active");
-
-        }
-
-    });
+    observer.observe(element);
 
 });
