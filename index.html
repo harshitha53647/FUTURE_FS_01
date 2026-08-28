@@ -1,23 +1,24 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="Harshitha G - CSE-AIML Student, Full Stack Web Developer and aspiring technology professional.">
+        content="Harshitha G - CSE-AIML Student and aspiring technology professional.">
 
     <meta name="keywords"
-        content="Harshitha G, Full Stack Developer, CSE AIML, Web Developer, Python, JavaScript, AI, Portfolio">
+        content="Harshitha G, CSE AIML, Python, Java, HTML, Figma, Power BI, Portfolio">
 
     <meta name="author" content="Harshitha G">
 
-    <title>Harshitha G | Full Stack Web Developer</title>
+    <title>Harshitha G | CSE-AIML Student</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
@@ -45,7 +46,7 @@
                 Harshitha<span>.</span>
             </a>
 
-            <button class="menu-btn" id="menu-btn">
+            <button class="menu-btn" id="menu-btn" aria-label="Open menu">
                 <i class="fas fa-bars"></i>
             </button>
 
@@ -81,18 +82,29 @@
 
             </ul>
 
+            <a href="resume.pdf" class="nav-resume" download>
+                <i class="fas fa-download"></i>
+                Resume
+            </a>
+
         </nav>
 
     </header>
 
 
-    <!-- ================= HOME ================= -->
+    <!-- ================= MAIN ================= -->
 
     <main>
+
+
+        <!-- ================= HOME ================= -->
 
         <section class="hero" id="home">
 
             <div class="hero-container">
+
+
+                <!-- LEFT SIDE -->
 
                 <div class="hero-text">
 
@@ -107,15 +119,52 @@
 
                     <h2>
                         CSE-AIML Student &
-                        <span>Full Stack Web Developer</span>
+                        <span>Technology Enthusiast</span>
                     </h2>
 
                     <p class="hero-description">
-                        I am passionate about building meaningful digital
-                        experiences and practical technology solutions.
-                        I enjoy working with web development, Python,
-                        artificial intelligence and real-world projects.
+
+                        I am a Computer Science and Engineering student
+                        specializing in Artificial Intelligence and Machine Learning.
+                        I enjoy exploring technology, building practical projects
+                        and turning ideas into meaningful solutions.
+
                     </p>
+
+
+                    <!-- SKILL MINI TAGS -->
+
+                    <div class="hero-tags">
+
+                        <span>
+                            <i class="fab fa-python"></i>
+                            Python · Basic
+                        </span>
+
+                        <span>
+                            <i class="fab fa-java"></i>
+                            Java
+                        </span>
+
+                        <span>
+                            <i class="fab fa-html5"></i>
+                            HTML · Basic
+                        </span>
+
+                        <span>
+                            <i class="fas fa-pen-nib"></i>
+                            Figma
+                        </span>
+
+                        <span>
+                            <i class="fas fa-chart-column"></i>
+                            Power BI · Basic
+                        </span>
+
+                    </div>
+
+
+                    <!-- BUTTONS -->
 
                     <div class="hero-buttons">
 
@@ -131,9 +180,12 @@
                     </div>
 
 
+                    <!-- SOCIAL LINKS -->
+
                     <div class="social-links">
 
-                        <a href="https://github.com/harshitha53647"
+                        <a
+                            href="https://github.com/harshitha53647"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="GitHub">
@@ -143,7 +195,8 @@
                         </a>
 
 
-                        <a href="https://www.linkedin.com/in/harshitha-g-524295335"
+                        <a
+                            href="https://www.linkedin.com/in/harshitha-g-524295335"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn">
@@ -153,7 +206,8 @@
                         </a>
 
 
-                        <a href="mailto:harshithachenmai@gmail.com"
+                        <a
+                            href="mailto:harshithachenmai@gmail.com"
                             aria-label="Email">
 
                             <i class="fas fa-envelope"></i>
@@ -165,15 +219,15 @@
                 </div>
 
 
+                <!-- RIGHT SIDE PHOTO -->
+
                 <div class="hero-image">
 
                     <div class="profile-circle">
 
-                        <div class="profile-placeholder">
-
-                            <i class="fas fa-user"></i>
-
-                        </div>
+                        <img
+                            src="profile.jpg"
+                            alt="Harshitha G">
 
                     </div>
 
@@ -182,7 +236,10 @@
 
                         <i class="fas fa-code"></i>
 
-                        <span>Web Development</span>
+                        <div>
+                            <strong>Building Projects</strong>
+                            <span>Learning & Growing</span>
+                        </div>
 
                     </div>
 
@@ -191,7 +248,22 @@
 
                         <i class="fas fa-brain"></i>
 
-                        <span>AI & ML</span>
+                        <div>
+                            <strong>AI & ML</strong>
+                            <span>Exploring Possibilities</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-card card-three">
+
+                        <i class="fas fa-lightbulb"></i>
+
+                        <div>
+                            <strong>Problem Solver</strong>
+                            <span>Turning Ideas into Reality</span>
+                        </div>
 
                     </div>
 
@@ -219,13 +291,16 @@
 
             <div class="about-container">
 
+
                 <div class="about-image">
 
                     <div class="about-box">
 
                         <i class="fas fa-laptop-code"></i>
 
-                        <h3>Building</h3>
+                        <h3>
+                            Building
+                        </h3>
 
                         <p>
                             Learning. Creating. Growing.
@@ -250,16 +325,15 @@
 
                     <p>
                         I enjoy exploring new technologies and developing
-                        projects that solve real-world problems. My
-                        interests include full stack web development,
-                        Python, artificial intelligence, machine learning
-                        and IoT.
+                        projects that solve real-world problems. I am
+                        particularly interested in technology, data,
+                        artificial intelligence and practical applications.
                     </p>
 
                     <p>
-                        I believe that continuous learning and hands-on
-                        projects are the best ways to grow as a technology
-                        professional.
+                        I believe continuous learning, hands-on projects
+                        and real-world experience are important steps
+                        toward becoming a better technology professional.
                     </p>
 
 
@@ -306,73 +380,37 @@
 
             <div class="skills-grid">
 
-                <div class="skill-card">
 
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                    </div>
-
-                    <h3>HTML5</h3>
-
-                    <p>
-                        Semantic & Accessible Web Structure
-                    </p>
-
-                </div>
-
+                <!-- Python -->
 
                 <div class="skill-card">
 
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
-                    </div>
-
-                    <h3>CSS3</h3>
-
-                    <p>
-                        Responsive & Modern UI Design
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-                        <i class="fab fa-js"></i>
-                    </div>
-
-                    <h3>JavaScript</h3>
-
-                    <p>
-                        Interactive Web Experiences
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
+                    <div class="skill-icon python">
                         <i class="fab fa-python"></i>
                     </div>
 
-                    <h3>Python</h3>
+                    <h3>
+                        Python
+                    </h3>
 
                     <p>
-                        Programming & AI Applications
+                        Basic
                     </p>
 
                 </div>
 
 
+                <!-- Java -->
+
                 <div class="skill-card">
 
-                    <div class="skill-icon">
+                    <div class="skill-icon java">
                         <i class="fab fa-java"></i>
                     </div>
 
-                    <h3>Java</h3>
+                    <h3>
+                        Java
+                    </h3>
 
                     <p>
                         Object-Oriented Programming
@@ -381,46 +419,58 @@
                 </div>
 
 
+                <!-- HTML -->
+
                 <div class="skill-card">
 
-                    <div class="skill-icon">
-                        <i class="fab fa-github"></i>
+                    <div class="skill-icon html">
+                        <i class="fab fa-html5"></i>
                     </div>
 
-                    <h3>Git & GitHub</h3>
+                    <h3>
+                        HTML
+                    </h3>
 
                     <p>
-                        Version Control & Collaboration
+                        Basic
                     </p>
 
                 </div>
 
 
+                <!-- Figma -->
+
                 <div class="skill-card">
 
-                    <div class="skill-icon">
-                        <i class="fas fa-robot"></i>
+                    <div class="skill-icon figma">
+                        <i class="fas fa-pen-nib"></i>
                     </div>
 
-                    <h3>AI & ML</h3>
+                    <h3>
+                        Figma
+                    </h3>
 
                     <p>
-                        Machine Learning & AI Projects
+                        UI Design & Prototyping
                     </p>
 
                 </div>
 
 
+                <!-- Power BI -->
+
                 <div class="skill-card">
 
-                    <div class="skill-icon">
-                        <i class="fas fa-microchip"></i>
+                    <div class="skill-icon powerbi">
+                        <i class="fas fa-chart-column"></i>
                     </div>
 
-                    <h3>IoT</h3>
+                    <h3>
+                        Power BI
+                    </h3>
 
                     <p>
-                        Arduino & Sensor-Based Projects
+                        Basic
                     </p>
 
                 </div>
@@ -470,7 +520,6 @@
                         educational documents through voice interaction.
                     </p>
 
-
                     <div class="tech-tags">
 
                         <span>Python</span>
@@ -480,13 +529,9 @@
 
                     </div>
 
-
                     <a href="#contact" class="project-link">
-
                         Discuss Project
-
                         <i class="fas fa-arrow-right"></i>
-
                     </a>
 
                 </article>
@@ -514,7 +559,6 @@
                         and equal opportunity based metrics.
                     </p>
 
-
                     <div class="tech-tags">
 
                         <span>Python</span>
@@ -524,8 +568,8 @@
 
                     </div>
 
-
-                    <a href="https://github.com/harshitha53647/AI-Farirness-Checker"
+                    <a
+                        href="https://github.com/harshitha53647/AI-Fairness-Checker"
                         class="project-link"
                         target="_blank"
                         rel="noopener noreferrer">
@@ -561,7 +605,6 @@
                         alerts through a buzzer and vibration motor.
                     </p>
 
-
                     <div class="tech-tags">
 
                         <span>Arduino</span>
@@ -570,8 +613,8 @@
 
                     </div>
 
-
-                    <a href="https://github.com/harshitha53647/Smart-Blind-Stick"
+                    <a
+                        href="https://github.com/harshitha53647/Smart-Blind-Stick"
                         class="project-link"
                         target="_blank"
                         rel="noopener noreferrer">
@@ -652,53 +695,254 @@
                 <p>Learning & Achievements</p>
 
                 <h2>
-                    Certifications
+                    My <span>Certifications</span>
                 </h2>
 
             </div>
 
 
-            <div class="certification-card">
-
-                <div class="certification-icon">
-
-                    <i class="fas fa-award"></i>
-
-                </div>
-
-                <div>
-
-                    <h3>
-                        Google Cloud Skill Boost
-                    </h3>
-
-                    <p>
-                        Learning badges and hands-on cloud learning
-                        experiences.
-                    </p>
-
-                </div>
-
-            </div>
+            <div class="certifications-grid">
 
 
-            <div class="certification-card">
+                <!-- 1 -->
 
-                <div class="certification-icon">
+                <div class="certification-card">
 
-                    <i class="fas fa-certificate"></i>
+                    <div class="certification-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Introduction to Modern AI
+                        </h3>
+
+                        <p>
+                            Cisco Networking Academy
+                        </p>
+
+                        <span>
+                            Completed: January 30, 2026
+                        </span>
+
+                    </div>
 
                 </div>
 
-                <div>
 
-                    <h3>
-                        Full Stack Web Development Internship
-                    </h3>
+                <!-- 2 -->
 
-                    <p>
-                        Future Interns — Full Stack Web Development
-                    </p>
+                <div class="certification-card">
+
+                    <div class="certification-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Data Analytics Job Simulation
+                        </h3>
+
+                        <p>
+                            Deloitte through Forage
+                        </p>
+
+                        <span>
+                            Completed: November 12, 2025
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 3 -->
+
+                <div class="certification-card">
+
+                    <div class="certification-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Solutions Architecture Job Simulation
+                        </h3>
+
+                        <p>
+                            AWS through Forage
+                        </p>
+
+                        <span>
+                            Completed: November 12, 2025
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 4 -->
+
+                <div class="certification-card">
+
+                    <div class="certification-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Python (Basic)
+                        </h3>
+
+                        <p>
+                            HackerRank
+                        </p>
+
+                        <span>
+                            Earned: February 16, 2026
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 5 -->
+
+                <div class="certification-card">
+
+                    <div class="certification-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Cyber Job Simulation
+                        </h3>
+
+                        <p>
+                            Deloitte through Forage
+                        </p>
+
+                        <span>
+                            Completed: March 13, 2026
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 6 -->
+
+                <div class="certification-card">
+
+                    <div class="certification-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Solution Challenge 2026: Build with AI
+                        </h3>
+
+                        <p>
+                            Certificate of Participation
+                        </p>
+
+                        <span>
+                            July 22, 2026
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 7 -->
+
+                <div class="certification-card">
+
+                    <div class="certification-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            PREXPO-1.4
+                        </h3>
+
+                        <p>
+                            Certificate of Participation
+                        </p>
+
+                        <span>
+                            Sapthagiri NPS University
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 8 -->
+
+                <div class="certification-card">
+
+                    <div class="certification-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            QuizOff 2026
+                        </h3>
+
+                        <p>
+                            India's Biggest AI Quiz
+                        </p>
+
+                        <span>
+                            CampusCrew
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 9 -->
+
+                <div class="certification-card">
+
+                    <div class="certification-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            CyberOps Associate
+                        </h3>
+
+                        <p>
+                            Cisco Networking Academy
+                        </p>
+
+                        <span>
+                            Completed: December 29, 2025
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -724,7 +968,8 @@
             </div>
 
 
-            <a href="resume.pdf"
+            <a
+                href="resume.pdf"
                 class="btn primary-btn"
                 download>
 
@@ -755,6 +1000,8 @@
             <div class="contact-container">
 
 
+                <!-- CONTACT INFORMATION -->
+
                 <div class="contact-info">
 
                     <h3>
@@ -770,15 +1017,15 @@
                     <div class="contact-details">
 
 
-                        <!-- Email -->
-
                         <div class="contact-item">
 
                             <i class="fas fa-envelope"></i>
 
                             <div>
 
-                                <span>Email</span>
+                                <span>
+                                    Email
+                                </span>
 
                                 <a href="mailto:harshithachenmai@gmail.com">
                                     harshithachenmai@gmail.com
@@ -789,17 +1036,18 @@
                         </div>
 
 
-                        <!-- GitHub -->
-
                         <div class="contact-item">
 
                             <i class="fab fa-github"></i>
 
                             <div>
 
-                                <span>GitHub</span>
+                                <span>
+                                    GitHub
+                                </span>
 
-                                <a href="https://github.com/harshitha53647"
+                                <a
+                                    href="https://github.com/harshitha53647"
                                     target="_blank"
                                     rel="noopener noreferrer">
 
@@ -812,17 +1060,18 @@
                         </div>
 
 
-                        <!-- LinkedIn -->
-
                         <div class="contact-item">
 
                             <i class="fab fa-linkedin"></i>
 
                             <div>
 
-                                <span>LinkedIn</span>
+                                <span>
+                                    LinkedIn
+                                </span>
 
-                                <a href="https://www.linkedin.com/in/harshitha-g-524295335"
+                                <a
+                                    href="https://www.linkedin.com/in/harshitha-g-524295335"
                                     target="_blank"
                                     rel="noopener noreferrer">
 
@@ -841,14 +1090,14 @@
 
                 <!-- CONTACT FORM -->
 
-                <form class="contact-form"
+                <form
+                    class="contact-form"
                     id="contact-form"
                     action="https://formspree.io/f/xzebpqpn"
                     method="POST">
 
 
                     <div class="input-row">
-
 
                         <input
                             type="text"
@@ -923,8 +1172,8 @@
 
             <div class="footer-social">
 
-
-                <a href="https://github.com/harshitha53647"
+                <a
+                    href="https://github.com/harshitha53647"
                     target="_blank"
                     rel="noopener noreferrer">
 
@@ -933,7 +1182,8 @@
                 </a>
 
 
-                <a href="https://www.linkedin.com/in/harshitha-g-524295335"
+                <a
+                    href="https://www.linkedin.com/in/harshitha-g-524295335"
                     target="_blank"
                     rel="noopener noreferrer">
 
@@ -968,4 +1218,3 @@
 </body>
 
 </html>
-```

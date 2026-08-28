@@ -16,11 +16,13 @@ if (menuBtn && navLinks) {
         if (navLinks.classList.contains("active")) {
 
             icon.classList.remove("fa-bars");
+
             icon.classList.add("fa-xmark");
 
         } else {
 
             icon.classList.remove("fa-xmark");
+
             icon.classList.add("fa-bars");
 
         }
@@ -28,7 +30,7 @@ if (menuBtn && navLinks) {
     });
 
 
-    /* Close menu after clicking a link */
+    /* Close mobile menu after clicking */
 
     document.querySelectorAll(".nav-links a").forEach(link => {
 
@@ -39,6 +41,7 @@ if (menuBtn && navLinks) {
             const icon = menuBtn.querySelector("i");
 
             icon.classList.remove("fa-xmark");
+
             icon.classList.add("fa-bars");
 
         });
@@ -52,118 +55,108 @@ if (menuBtn && navLinks) {
    CONTACT FORM - FORMSPREE
 ========================= */
 
-const contactForm = document.getElementById("contact-form");
-const formMessage = document.getElementById("form-message");
+const contactForm =
+    document.getElementById("contact-form");
 
-if (contactForm && formMessage) {
-
-    contactForm.addEventListener("submit", async function (event) {
-
-        event.preventDefault();
-
-        /* Get form values */
-
-        const name =
-            document.getElementById("name").value.trim();
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        const subject =
-            document.getElementById("subject").value.trim();
-
-        const message =
-            document.getElementById("message").value.trim();
+const formMessage =
+    document.getElementById("form-message");
 
 
-        /* Validate fields */
+if (contactForm) {
 
-        if (!name || !email || !subject || !message) {
+    contactForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const submitButton =
+                contactForm.querySelector(
+                    'button[type="submit"]'
+                );
+
+
+            const originalButtonText =
+                submitButton.innerHTML;
+
+
+            /* Show sending message */
+
+            submitButton.disabled = true;
+
+            submitButton.innerHTML =
+                'Sending... <i class="fas fa-spinner fa-spin"></i>';
 
             formMessage.textContent =
-                "Please fill in all fields.";
-
-            formMessage.style.color = "#dc2626";
-
-            return;
-        }
+                "";
 
 
-        /* Show sending message */
-
-        formMessage.textContent =
-            "Sending your message...";
-
-        formMessage.style.color = "#7b1fa2";
+            const formData =
+                new FormData(contactForm);
 
 
-        /* Disable button while sending */
+            try {
 
-        const submitButton =
-            contactForm.querySelector("button[type='submit']");
+                const response =
+                    await fetch(
+                        contactForm.action,
+                        {
+                            method: "POST",
 
-        if (submitButton) {
-            submitButton.disabled = true;
-        }
+                            body: formData,
+
+                            headers: {
+                                "Accept":
+                                    "application/json"
+                            }
+                        }
+                    );
 
 
-        try {
+                if (response.ok) {
 
-            /* Send form data to Formspree */
+                    formMessage.textContent =
+                        "Thank you! Your message has been sent successfully.";
 
-            const response = await fetch(
-                "https://formspree.io/f/xzebpqpn",
-                {
-                    method: "POST",
-                    body: new FormData(contactForm),
-                    headers: {
-                        "Accept": "application/json"
-                    }
+                    formMessage.style.color =
+                        "#16a34a";
+
+
+                    /* Clear form */
+
+                    contactForm.reset();
+
+                } else {
+
+                    formMessage.textContent =
+                        "Something went wrong. Please try again.";
+
+                    formMessage.style.color =
+                        "#dc2626";
+
                 }
-            );
 
 
-            /* Check response */
-
-            if (response.ok) {
+            } catch (error) {
 
                 formMessage.textContent =
-                    "Message sent successfully! Thank you for reaching out.";
+                    "Unable to send the message. Please try again.";
 
-                formMessage.style.color = "#16a34a";
-
-                /* Clear form */
-
-                contactForm.reset();
-
-            } else {
-
-                formMessage.textContent =
-                    "Something went wrong. Please try again.";
-
-                formMessage.style.color = "#dc2626";
+                formMessage.style.color =
+                    "#dc2626";
 
             }
 
-        } catch (error) {
 
-            formMessage.textContent =
-                "Unable to send message. Please try again later.";
+            /* Restore button */
 
-            formMessage.style.color = "#dc2626";
-
-            console.error("Formspree Error:", error);
-
-        }
-
-
-        /* Enable button again */
-
-        if (submitButton) {
             submitButton.disabled = false;
-        }
 
-    });
+            submitButton.innerHTML =
+                originalButtonText;
+
+        });
 
 }
 
@@ -183,8 +176,6 @@ const observer =
 
                     entry.target.classList.add("show");
 
-                    /* Stop observing after animation */
-
                     observer.unobserve(entry.target);
 
                 }
@@ -200,21 +191,11 @@ const observer =
     );
 
 
-/* Elements to animate */
-
 document
     .querySelectorAll(
         ".skill-card, .project-card, .certification-card, .timeline-content"
     )
     .forEach(element => {
-
-        element.style.opacity = "0";
-
-        element.style.transform =
-            "translateY(25px)";
-
-        element.style.transition =
-            "opacity 0.6s ease, transform 0.6s ease";
 
         observer.observe(element);
 
@@ -222,33 +203,55 @@ document
 
 
 /* =========================
-   ANIMATION STYLE
+   ACTIVE NAVIGATION
 ========================= */
 
-const style =
-    document.createElement("style");
+const sections =
+    document.querySelectorAll("section[id]");
 
-style.innerHTML = `
+const navigationLinks =
+    document.querySelectorAll(".nav-links a");
 
-    .skill-card.show,
-    .project-card.show,
-    .certification-card.show,
-    .timeline-content.show {
 
-        opacity: 1 !important;
+window.addEventListener("scroll", () => {
 
-        transform: translateY(0) !important;
+    let currentSection = "";
 
-    }
+    sections.forEach(section => {
 
-    button:disabled {
+        const sectionTop =
+            section.offsetTop - 120;
 
-        opacity: 0.6;
+        const sectionHeight =
+            section.offsetHeight;
 
-        cursor: not-allowed;
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY <
+            sectionTop + sectionHeight
+        ) {
 
-    }
+            currentSection =
+                section.getAttribute("id");
 
-`;
+        }
 
-document.head.appendChild(style);
+    });
+
+
+    navigationLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href") ===
+            `#${currentSection}`
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
