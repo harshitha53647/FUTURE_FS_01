@@ -5,112 +5,167 @@
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 
-menuBtn.addEventListener("click", () => {
+if (menuBtn && navLinks) {
 
-    navLinks.classList.toggle("active");
+    menuBtn.addEventListener("click", () => {
 
-    const icon = menuBtn.querySelector("i");
-
-    if (navLinks.classList.contains("active")) {
-
-        icon.classList.remove("fa-bars");
-
-        icon.classList.add("fa-xmark");
-
-    } else {
-
-        icon.classList.remove("fa-xmark");
-
-        icon.classList.add("fa-bars");
-
-    }
-
-});
-
-
-/* Close menu after clicking a link */
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navLinks.classList.remove("active");
+        navLinks.classList.toggle("active");
 
         const icon = menuBtn.querySelector("i");
 
-        icon.classList.remove("fa-xmark");
+        if (navLinks.classList.contains("active")) {
 
-        icon.classList.add("fa-bars");
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        }
 
     });
 
-});
+
+    /* Close menu after clicking a link */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+
+            const icon = menuBtn.querySelector("i");
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        });
+
+    });
+
+}
 
 
 /* =========================
-   CONTACT FORM
+   CONTACT FORM - FORMSPREE
 ========================= */
 
 const contactForm = document.getElementById("contact-form");
-
 const formMessage = document.getElementById("form-message");
 
-contactForm.addEventListener("submit", function (event) {
+if (contactForm && formMessage) {
 
-    event.preventDefault();
+    contactForm.addEventListener("submit", async function (event) {
 
-    const name =
-        document.getElementById("name").value.trim();
+        event.preventDefault();
 
-    const email =
-        document.getElementById("email").value.trim();
+        /* Get form values */
 
-    const subject =
-        document.getElementById("subject").value.trim();
+        const name =
+            document.getElementById("name").value.trim();
 
-    const message =
-        document.getElementById("message").value.trim();
+        const email =
+            document.getElementById("email").value.trim();
+
+        const subject =
+            document.getElementById("subject").value.trim();
+
+        const message =
+            document.getElementById("message").value.trim();
 
 
-    if (!name || !email || !subject || !message) {
+        /* Validate fields */
+
+        if (!name || !email || !subject || !message) {
+
+            formMessage.textContent =
+                "Please fill in all fields.";
+
+            formMessage.style.color = "#dc2626";
+
+            return;
+        }
+
+
+        /* Show sending message */
 
         formMessage.textContent =
-            "Please fill in all fields.";
+            "Sending your message...";
 
-        formMessage.style.color = "#dc2626";
-
-        return;
-    }
+        formMessage.style.color = "#7b1fa2";
 
 
-    /*
-       Opens the user's email application
-       with a pre-filled message.
-    */
+        /* Disable button while sending */
 
-    const emailAddress =
-        "harshithachenmai@gmail.com";
+        const submitButton =
+            contactForm.querySelector("button[type='submit']");
 
-    const mailSubject =
-        encodeURIComponent(subject);
-
-    const mailBody =
-        encodeURIComponent(
-            "Name: " + name +
-            "\nEmail: " + email +
-            "\n\nMessage:\n" + message
-        );
-
-    window.location.href =
-        `mailto:${emailAddress}?subject=${mailSubject}&body=${mailBody}`;
+        if (submitButton) {
+            submitButton.disabled = true;
+        }
 
 
-    formMessage.textContent =
-        "Opening your email application...";
+        try {
 
-    formMessage.style.color = "#16a34a";
+            /* Send form data to Formspree */
 
-});
+            const response = await fetch(
+                "https://formspree.io/f/xzebpqpn",
+                {
+                    method: "POST",
+                    body: new FormData(contactForm),
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+
+            /* Check response */
+
+            if (response.ok) {
+
+                formMessage.textContent =
+                    "Message sent successfully! Thank you for reaching out.";
+
+                formMessage.style.color = "#16a34a";
+
+                /* Clear form */
+
+                contactForm.reset();
+
+            } else {
+
+                formMessage.textContent =
+                    "Something went wrong. Please try again.";
+
+                formMessage.style.color = "#dc2626";
+
+            }
+
+        } catch (error) {
+
+            formMessage.textContent =
+                "Unable to send message. Please try again later.";
+
+            formMessage.style.color = "#dc2626";
+
+            console.error("Formspree Error:", error);
+
+        }
+
+
+        /* Enable button again */
+
+        if (submitButton) {
+            submitButton.disabled = false;
+        }
+
+    });
+
+}
 
 
 /* =========================
@@ -119,6 +174,7 @@ contactForm.addEventListener("submit", function (event) {
 
 const observer =
     new IntersectionObserver(
+
         (entries) => {
 
             entries.forEach(entry => {
@@ -127,16 +183,24 @@ const observer =
 
                     entry.target.classList.add("show");
 
+                    /* Stop observing after animation */
+
+                    observer.unobserve(entry.target);
+
                 }
 
             });
 
         },
+
         {
             threshold: 0.15
         }
+
     );
 
+
+/* Elements to animate */
 
 document
     .querySelectorAll(
@@ -157,7 +221,9 @@ document
     });
 
 
-/* Add visible animation */
+/* =========================
+   ANIMATION STYLE
+========================= */
 
 const style =
     document.createElement("style");
@@ -172,6 +238,14 @@ style.innerHTML = `
         opacity: 1 !important;
 
         transform: translateY(0) !important;
+
+    }
+
+    button:disabled {
+
+        opacity: 0.6;
+
+        cursor: not-allowed;
 
     }
 
