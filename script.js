@@ -5,7 +5,6 @@
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 
-
 if (menuBtn && navLinks) {
 
     menuBtn.addEventListener("click", () => {
@@ -28,36 +27,34 @@ if (menuBtn && navLinks) {
 
     });
 
+
+    /* Close mobile menu after clicking a link */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+
+            const icon = menuBtn.querySelector("i");
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        });
+
+    });
+
 }
 
 
 /* =========================
-   CLOSE MENU AFTER CLICKING
-========================= */
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navLinks.classList.remove("active");
-
-        const icon = menuBtn.querySelector("i");
-
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
-
-    });
-
-});
-
-
-/* =========================
-   CONTACT FORM - FORMSPREE
+   CONTACT FORM
+   FORMSPREE
 ========================= */
 
 const contactForm = document.getElementById("contact-form");
 const formMessage = document.getElementById("form-message");
-
 
 if (contactForm) {
 
@@ -65,53 +62,66 @@ if (contactForm) {
 
         event.preventDefault();
 
+        if (formMessage) {
+
+            formMessage.textContent = "Sending message...";
+            formMessage.style.color = "#7c3aed";
+
+        }
 
         const formData = new FormData(contactForm);
 
-
-        formMessage.textContent = "Sending message...";
-        formMessage.style.color = "#b94f5d";
-
-
         try {
 
-            const response = await fetch(
-                contactForm.action,
-                {
-                    method: "POST",
-                    body: formData,
-                    headers: {
-                        "Accept": "application/json"
-                    }
+            const response = await fetch(contactForm.action, {
+
+                method: "POST",
+
+                body: formData,
+
+                headers: {
+                    "Accept": "application/json"
                 }
-            );
+
+            });
 
 
             if (response.ok) {
 
-                formMessage.textContent =
-                    "Message sent successfully! Thank you.";
+                if (formMessage) {
 
-                formMessage.style.color = "#16a34a";
+                    formMessage.textContent =
+                        "Message sent successfully! Thank you for contacting me.";
 
+                    formMessage.style.color = "#16a34a";
+
+                }
 
                 contactForm.reset();
 
             } else {
 
-                formMessage.textContent =
-                    "Oops! Something went wrong. Please try again.";
+                if (formMessage) {
 
-                formMessage.style.color = "#dc2626";
+                    formMessage.textContent =
+                        "Something went wrong. Please try again.";
+
+                    formMessage.style.color = "#dc2626";
+
+                }
 
             }
 
         } catch (error) {
 
-            formMessage.textContent =
-                "Network error. Please try again.";
+            if (formMessage) {
 
-            formMessage.style.color = "#dc2626";
+                formMessage.textContent =
+                    "Unable to send the message. Please try again.";
+
+                formMessage.style.color = "#dc2626";
+
+            }
 
         }
 
@@ -124,6 +134,11 @@ if (contactForm) {
    SCROLL ANIMATION
 ========================= */
 
+const animatedElements = document.querySelectorAll(
+    ".skill-card, .project-card, .certification-card, .timeline-content"
+);
+
+
 const observer = new IntersectionObserver(
 
     (entries) => {
@@ -133,8 +148,6 @@ const observer = new IntersectionObserver(
             if (entry.isIntersecting) {
 
                 entry.target.classList.add("show");
-
-                observer.unobserve(entry.target);
 
             }
 
@@ -149,22 +162,9 @@ const observer = new IntersectionObserver(
 );
 
 
-/* Elements to animate */
-
-const animatedElements = document.querySelectorAll(
-
-    ".skill-card, " +
-    ".project-card, " +
-    ".certification-card, " +
-    ".timeline-content, " +
-    ".about-box"
-
-);
-
-
 animatedElements.forEach(element => {
 
-    element.classList.add("hidden-animation");
+    element.classList.add("animate-on-scroll");
 
     observer.observe(element);
 
