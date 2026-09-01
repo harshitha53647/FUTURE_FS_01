@@ -628,3 +628,298 @@ magneticButtons.forEach((button) => {
     });
 
 });
+/* =====================================================
+   GITHUB LIVE STATISTICS
+===================================================== */
+
+const githubUsername = "harshitha53647";
+
+
+async function loadGitHubStats() {
+
+    try {
+
+        const response = await fetch(
+            `https://api.github.com/users/${githubUsername}`
+        );
+
+        const data = await response.json();
+
+
+        document.getElementById("repo-count").textContent =
+            data.public_repos ?? "0";
+
+
+        document.getElementById("followers-count").textContent =
+            data.followers ?? "0";
+
+
+        document.getElementById("following-count").textContent =
+            data.following ?? "0";
+
+
+        const repoResponse = await fetch(
+            `https://api.github.com/users/${githubUsername}/repos?per_page=100`
+        );
+
+        const repositories =
+            await repoResponse.json();
+
+
+        let totalStars = 0;
+
+
+        repositories.forEach(repo => {
+
+            totalStars +=
+                repo.stargazers_count;
+
+        });
+
+
+        document.getElementById("stars-count").textContent =
+            totalStars;
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to load GitHub statistics:",
+            error
+        );
+
+    }
+
+}
+
+
+loadGitHubStats();
+/* =========================================
+   REAL MOUSE FOLLOWING 3D CARDS
+========================================= */
+
+const cards = document.querySelectorAll(
+    ".project-card, .skill-card, .certificate-card, .github-stat-card"
+);
+
+cards.forEach((card) => {
+
+    card.addEventListener("mousemove", (e) => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-10px)`;
+    });
+
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0) translateY(0)";
+    });
+
+});
+/* =========================================
+   ANIMATED SECTION TITLES
+========================================= */
+
+const sectionTitles = document.querySelectorAll(".section-title");
+
+const titleObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            }
+        });
+    },
+    {
+        threshold: 0.2
+    }
+);
+
+sectionTitles.forEach((title) => {
+    titleObserver.observe(title);
+});
+/* =========================================
+   FLOATING PARTICLES
+========================================= */
+
+const particlesContainer = document.querySelector(".particles");
+
+if (particlesContainer) {
+
+    for (let i = 0; i < 40; i++) {
+
+        const particle = document.createElement("span");
+
+        particle.classList.add("particle");
+
+        const size = Math.random() * 8 + 3;
+
+        particle.style.width = size + "px";
+        particle.style.height = size + "px";
+
+        particle.style.left = Math.random() * 100 + "%";
+
+        particle.style.animationDuration =
+            Math.random() * 12 + 8 + "s";
+
+        particle.style.animationDelay =
+            Math.random() * 10 + "s";
+
+        particlesContainer.appendChild(particle);
+
+    }
+
+}
+
+ /* =========================================
+   DARK / LIGHT MODE
+========================================= */
+
+const themeToggle = document.getElementById("theme-toggle");
+
+const themeIcon = themeToggle
+    ? themeToggle.querySelector("i")
+    : null;
+
+
+/* Load Saved Theme */
+
+if (localStorage.getItem("theme") === "light") {
+
+    document.body.classList.add("light-mode");
+
+    if (themeIcon) {
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+    }
+
+}
+
+
+/* Toggle Theme */
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("light-mode");
+
+
+        if (document.body.classList.contains("light-mode")) {
+
+            localStorage.setItem("theme", "light");
+
+            if (themeIcon) {
+
+                themeIcon.classList.remove("fa-moon");
+                themeIcon.classList.add("fa-sun");
+
+            }
+
+        } else {
+
+            localStorage.setItem("theme", "dark");
+
+            if (themeIcon) {
+
+                themeIcon.classList.remove("fa-sun");
+                themeIcon.classList.add("fa-moon");
+
+            }
+
+        }
+
+    });
+
+}
+/* =========================================
+   ANIMATED ABOUT COUNTERS
+========================================= */
+
+const counters = document.querySelectorAll(".counter");
+
+const counterObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                const counter = entry.target;
+
+                const target =
+                    parseFloat(counter.getAttribute("data-target"));
+
+                const decimals =
+                    parseInt(counter.getAttribute("data-decimals")) || 0;
+
+                const suffix =
+                    counter.getAttribute("data-suffix") || "";
+
+                const duration = 1500;
+
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+
+                    const progress =
+                        Math.min(
+                            (currentTime - startTime) / duration,
+                            1
+                        );
+
+                    const value =
+                        target * progress;
+
+                    counter.textContent =
+                        value.toFixed(decimals) + suffix;
+
+                    if (progress < 1) {
+
+                        requestAnimationFrame(updateCounter);
+
+                    } else {
+
+                        counter.textContent =
+                            target.toFixed(decimals) + suffix;
+
+                    }
+
+                }
+
+                requestAnimationFrame(updateCounter);
+
+                counterObserver.unobserve(counter);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.7
+    }
+);
+
+
+counters.forEach((counter) => {
+
+    counterObserver.observe(counter);
+
+});

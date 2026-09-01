@@ -198,9 +198,91 @@ body {
             #efd6d6 100%
         );
 }
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+/* =========================
+   ANIMATED HERO BLOBS
+========================= */
+
+.hero::before,
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(10px);
+
+    z-index: 0;
+
+    opacity: 0.45;
+
+}
+.hero::before {
+
+    width: 350px;
+    height: 350px;
+
+    background:
+        rgba(169, 68, 77, 0.18);
+
+    top: 10%;
+    left: -120px;
+
+    animation: blobMove 8s ease-in-out infinite;
+
+}
+.hero::after {
+
+    width: 300px;
+    height: 300px;
+
+    background:
+        rgba(201, 106, 112, 0.18);
+
+    bottom: -100px;
+    right: -80px;
+
+    animation: blobMoveTwo 10s ease-in-out infinite;
+
+}
+@keyframes blobMove {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(60px, 40px) scale(1.1);
+    }
+
+}
+
+
+@keyframes blobMoveTwo {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-50px, -35px) scale(1.12);
+    }
+
+}
+
+
 
 .hero-container {
+
     width: 100%;
+
     max-width: 1200px;
 
     margin: auto;
@@ -212,6 +294,10 @@ body {
     align-items: center;
 
     gap: 70px;
+
+    position: relative;
+    z-index: 2;
+
 }
 
 
@@ -459,10 +545,23 @@ body {
     z-index: 1;
 
     transition: transform 0.4s ease;
+    animation: profileFloat 4s ease-in-out infinite;
 }
+@keyframes profileFloat {
 
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+}
 .profile-circle:hover {
-    transform: scale(1.03);
+    animation-play-state: paused;
+    transform: translateY(-10px) scale(1.03);
 }
 
 .profile-circle img {
@@ -3264,50 +3363,811 @@ footer {
     transition: transform 0.2s ease;
     will-change: transform;
 }
+
+
 /* =====================================================
-   PROFESSIONAL CUSTOM CURSOR
+   GITHUB STATS SECTION
 ===================================================== */
 
-const cursorDot = document.querySelector(".cursor-dot");
-const cursorOutline = document.querySelector(".cursor-outline");
+.github-stats {
 
-if (cursorDot && cursorOutline) {
-
-    document.addEventListener("mousemove", (e) => {
-
-        cursorDot.style.left = e.clientX + "px";
-        cursorDot.style.top = e.clientY + "px";
-
-        cursorOutline.animate(
-            {
-                left: e.clientX + "px",
-                top: e.clientY + "px"
-            },
-            {
-                duration: 180,
-                fill: "forwards"
-            }
+    background:
+        linear-gradient(
+            135deg,
+            #f8eeee,
+            #f2dada
         );
 
-    });
+}
 
 
-    /* CURSOR HOVER EFFECT */
+/* MAIN CONTAINER */
 
-    const hoverElements = document.querySelectorAll(
-        "a, button, .project-card, .skill-card, .certificate-card"
-    );
+.github-container {
 
-    hoverElements.forEach((element) => {
+    max-width: 1100px;
 
-        element.addEventListener("mouseenter", () => {
-            cursorOutline.classList.add("hover");
-        });
+    margin: auto;
 
-        element.addEventListener("mouseleave", () => {
-            cursorOutline.classList.remove("hover");
-        });
+    display: grid;
 
-    });
+    grid-template-columns: 0.8fr 1.2fr;
 
+    gap: 35px;
+
+    align-items: stretch;
+
+}
+
+
+/* =====================================================
+   GITHUB PROFILE CARD
+===================================================== */
+
+.github-profile-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b3740,
+            #b5525a
+        );
+
+    border-radius: 22px;
+
+    padding: 40px 30px;
+
+    color: white;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 20px 45px
+        rgba(120, 50, 55, 0.25);
+
+    transition: 0.4s ease;
+
+}
+
+
+.github-profile-card:hover {
+
+    transform:
+        translateY(-10px);
+
+}
+
+
+.github-profile-icon {
+
+    width: 85px;
+
+    height: 85px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 42px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.github-profile-card h3 {
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.github-profile-card p {
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    opacity: 0.9;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* GITHUB BUTTON */
+
+.github-profile-btn {
+
+    background: white;
+
+    color: var(--primary-dark);
+
+    padding: 13px 22px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    transition: 0.3s ease;
+
+}
+
+
+.github-profile-btn:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    background: #f7e1e1;
+
+}
+
+
+/* =====================================================
+   STATISTICS GRID
+===================================================== */
+
+.github-stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.github-stat-card {
+
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(169, 68, 77, 0.12);
+
+    box-shadow:
+        0 10px 30px
+        rgba(120, 50, 55, 0.08);
+
+    transition: 0.35s ease;
+
+}
+
+
+.github-stat-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 40px
+        rgba(120, 50, 55, 0.16);
+
+}
+
+
+.stat-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 15px;
+
+    background: #f7e1e1;
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+}
+
+
+.github-stat-card h3 {
+
+    font-size: 30px;
+
+    color: var(--primary-dark);
+
+    margin-bottom: 5px;
+
+}
+
+
+.github-stat-card p {
+
+    font-size: 13px;
+
+    color: var(--text-light);
+
+}
+
+
+/* =====================================================
+   TECHNOLOGY SECTION
+===================================================== */
+
+.github-language-section {
+
+    max-width: 1100px;
+
+    margin: 45px auto 0;
+
+    text-align: center;
+
+}
+
+
+.github-language-section h3 {
+
+    font-size: 22px;
+
+    margin-bottom: 25px;
+
+    color: var(--text-dark);
+
+}
+
+
+.language-tags {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+}
+
+
+.language-tags span {
+
+    background:
+        rgba(255, 255, 255, 0.8);
+
+    padding: 12px 18px;
+
+    border-radius: 30px;
+
+    color: var(--primary-dark);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(120, 50, 55, 0.08);
+
+    transition: 0.3s ease;
+
+}
+
+
+.language-tags span i {
+
+    color: var(--primary);
+
+    font-size: 16px;
+
+}
+
+
+.language-tags span:hover {
+
+    background: var(--primary);
+
+    color: white;
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+.language-tags span:hover i {
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .github-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .github-stats-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .github-profile-card {
+
+        padding: 35px 25px;
+
+    }
+
+}
+/* =========================================
+   3D PROJECT CARD EFFECT
+========================================= */
+
+.project-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-12px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* Make content appear slightly forward */
+
+.project-preview,
+.project-content,
+.project-number,
+.featured-badge {
+    transform: translateZ(25px);
+}
+/* =========================================
+   STRONG 3D CARD EFFECT
+========================================= */
+
+/* PROJECT CARDS */
+.project-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+    transform-style: preserve-3d;
+}
+
+.project-card:hover {
+    transform: perspective(1000px)
+               translateY(-15px)
+               rotateX(8deg)
+               rotateY(-8deg) !important;
+
+    box-shadow: 20px 25px 50px rgba(120, 50, 55, 0.25) !important;
+}
+
+
+/* SKILL CARDS */
+.skill-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.skill-card:hover {
+    transform: perspective(1000px)
+               translateY(-12px)
+               rotateX(8deg)
+               rotateY(-8deg);
+
+    box-shadow: 18px 22px 40px rgba(120, 50, 55, 0.2);
+}
+
+
+/* CERTIFICATE CARDS */
+.certificate-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.certificate-card:hover {
+    transform: perspective(1000px)
+               translateY(-12px)
+               rotateX(7deg)
+               rotateY(-7deg);
+}
+
+
+/* GITHUB STAT CARDS */
+.github-stat-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.github-stat-card:hover {
+    transform: perspective(1000px)
+               translateY(-10px)
+               rotateX(7deg)
+               rotateY(-7deg);
+}
+/* REAL 3D CARD EFFECT */
+
+.project-card,
+.skill-card,
+.certificate-card,
+.github-stat-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-card:hover,
+.skill-card:hover,
+.certificate-card:hover,
+.github-stat-card:hover {
+    box-shadow: 0 25px 50px rgba(120, 50, 55, 0.28);
+}
+/* =========================================
+   STRONG VISIBLE 3D CARD EFFECT
+========================================= */
+
+.project-card,
+.skill-card,
+.certificate-card,
+.github-stat-card {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* 3D LAYER BEHIND CARD */
+.project-card::after,
+.skill-card::after,
+.certificate-card::after,
+.github-stat-card::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    background: rgba(169, 68, 77, 0.18);
+    border-radius: inherit;
+    transform: translateZ(-30px) translateY(12px);
+    filter: blur(12px);
+    z-index: -1;
+}
+
+/* STRONG HOVER EFFECT */
+.project-card:hover,
+.skill-card:hover,
+.certificate-card:hover,
+.github-stat-card:hover {
+    transform:
+        perspective(900px)
+        rotateX(10deg)
+        rotateY(-10deg)
+        translateY(-15px)
+        scale(1.04) !important;
+
+    box-shadow:
+        25px 30px 60px rgba(80, 20, 25, 0.30) !important;
+}
+
+/* MAKE CONTENT LOOK LIKE IT POPS OUT */
+.project-card:hover .project-content,
+.project-card:hover .project-preview,
+.skill-card:hover .skill-icon,
+.github-stat-card:hover .stat-icon,
+.certificate-card:hover .certificate-content {
+    transform: translateZ(35px);
+}
+/* =========================================
+   ANIMATED SECTION TITLES
+========================================= */
+
+.section-title {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+/* When section becomes visible */
+.section-title.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Small heading animation */
+.section-title p {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: all 0.6s ease 0.2s;
+}
+
+.section-title.active p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Main title animation */
+.section-title h2 {
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+    transition: all 0.7s ease 0.35s;
+}
+
+.section-title.active h2 {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Animated underline */
+.section-title h2::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 4px;
+    background: var(--primary);
+    margin: 14px auto 0;
+    border-radius: 10px;
+    transition: width 0.8s ease 0.6s;
+}
+
+.section-title.active h2::after {
+    width: 70px;
+}
+/* =========================================
+   FLOATING BACKGROUND PARTICLES
+========================================= */
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Individual Particle */
+
+.particle {
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: rgba(169, 68, 77, 0.18);
+    border-radius: 50%;
+    animation: floatParticle linear infinite;
+}
+
+/* Floating Animation */
+
+@keyframes floatParticle {
+
+    0% {
+        transform: translateY(110vh) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* Keep website content above particles */
+
+.header,
+.hero,
+.section,
+.resume-section,
+footer,
+#back-to-top {
+    position: relative;
+    z-index: 1;
+}
+/* =========================================
+   DARK / LIGHT MODE TOGGLE
+========================================= */
+
+.theme-toggle {
+    width: 45px;
+    height: 45px;
+
+    border: 2px solid #ff4d4d;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.4s ease;
+
+    margin-left: 15px;
+}
+
+
+.theme-toggle:hover {
+    background: #ff4d4d;
+
+    color: #ffffff;
+
+    transform: rotate(20deg) scale(1.1);
+
+    box-shadow:
+        0 0 15px #ff4d4d,
+        0 0 30px rgba(255, 77, 77, 0.5);
+}
+
+
+/* =========================================
+   LIGHT MODE
+========================================= */
+
+body.light-mode {
+    background: #fff5f5;
+    color: #1f1f1f;
+}
+
+
+/* Sections */
+
+body.light-mode .section {
+    background: #fffafa;
+}
+
+
+/* Navbar */
+
+body.light-mode .header {
+    background: rgba(255, 245, 245, 0.95);
+}
+
+
+/* Text */
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode p,
+body.light-mode span {
+    color: #2b0d0d;
+}
+
+
+/* Cards */
+
+body.light-mode .project-card,
+body.light-mode .skill-progress-card,
+body.light-mode .certificate-card,
+body.light-mode .github-stat-card,
+body.light-mode .github-profile-card,
+body.light-mode .timeline-content,
+body.light-mode .about-box {
+    background: #ffffff;
+
+    border: 1px solid rgba(180, 30, 30, 0.2);
+
+    box-shadow: 0 10px 30px rgba(80, 0, 0, 0.12);
+}
+
+
+/* Hero */
+
+body.light-mode .hero {
+    background: #fff5f5;
+}
+
+
+/* Footer */
+
+body.light-mode footer {
+    background: #2b0d0d;
+}
+
+body.light-mode footer p,
+body.light-mode footer a {
+    color: #ffffff;
+}
+
+
+/* Buttons */
+
+body.light-mode .theme-toggle {
+    color: #2b0d0d;
+}
+/* =========================================
+   ANIMATED STAT COUNTERS
+========================================= */
+
+.about-stats .stat-item strong {
+    display: block;
+
+    transition: 0.3s ease;
+
+    text-shadow:
+        0 0 10px rgba(255, 70, 70, 0.3);
+}
+
+
+.about-stats .stat-item:hover strong {
+    transform: scale(1.15);
+
+    text-shadow:
+        0 0 15px #ff4d4d,
+        0 0 30px rgba(255, 77, 77, 0.5);
 }

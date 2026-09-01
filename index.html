@@ -41,6 +41,7 @@
 
 
 <body>
+    <div class="particles"></div>
     <div class="cursor-dot"></div>
 <div class="cursor-outline"></div>
     <!-- Scroll Progress Bar -->
@@ -109,6 +110,11 @@
                 </li>
 
             </ul>
+            <!-- DARK / LIGHT MODE TOGGLE -->
+
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
 
         </nav>
 
@@ -319,48 +325,61 @@
                     </p>
 
 
-                    <div class="about-stats">
 
-                        <div>
+    <!-- CGPA -->
 
-                            <strong>
-                                8.72
-                            </strong>
+                <div class="stat-item">
 
-                            <span>
-                                CGPA
-                            </span>
+                    <strong
+                        class="counter"
+                        data-target="8.72"
+                        data-decimals="2">
 
-                        </div>
+                        0.00     
+                    </strong>
 
+                     <span>
+                             CGPA
+                    </span>
 
-                        <div>
-
-                            <strong>
-                                3+
-                            </strong>
-
-                            <span>
-                                Projects
-                            </span>
-
-                        </div>
+               </div>
 
 
-                        <div>
+    <!-- PROJECTS -->
 
-                            <strong>
-                                ∞
-                            </strong>
+    <div class="stat-item">
 
-                            <span>
-                                Learning
-                            </span>
+        <strong
+            class="counter"
+            data-target="3"
+            data-suffix="+">
 
-                        </div>
+            0+
 
-                    </div>
+        </strong>
 
+        <span>
+            Projects
+        </span>
+
+    </div>
+
+
+    <!-- LEARNING -->
+
+    <div class="stat-item">
+
+        <strong class="infinity-counter">
+            ∞
+        </strong>
+
+        <span>
+            Learning
+        </span>
+
+    </div>
+
+</div>    
                 </div>
 
             </div>
@@ -805,7 +824,149 @@
     </div>
 
 </section>
+<!-- =========================
+     GITHUB STATS
+========================= -->
 
+<section class="github-stats section" id="github">
+
+    <div class="section-title">
+        <p>My Coding Journey</p>
+        <h2>GitHub <span>Stats</span></h2>
+    </div>
+
+    <div class="github-container">
+
+        <!-- GitHub Profile Card -->
+
+        <div class="github-profile-card">
+
+            <div class="github-profile-icon">
+                <i class="fa-brands fa-github"></i>
+            </div>
+
+            <h3>Harshitha G</h3>
+
+            <p>
+                Explore my projects, repositories and coding journey
+                on GitHub.
+            </p>
+
+            <a
+                href="https://github.com/harshitha53647"
+                target="_blank"
+                class="github-profile-btn"
+            >
+                <i class="fa-brands fa-github"></i>
+                Visit My GitHub
+            </a>
+
+        </div>
+
+
+        <!-- GitHub Statistics -->
+
+        <div class="github-stats-grid">
+
+            <div class="github-stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-code-branch"></i>
+                </div>
+
+                <h3 id="repo-count">--</h3>
+
+                <p>Repositories</p>
+
+            </div>
+
+
+            <div class="github-stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <h3 id="followers-count">--</h3>
+
+                <p>Followers</p>
+
+            </div>
+
+
+            <div class="github-stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <h3 id="following-count">--</h3>
+
+                <p>Following</p>
+
+            </div>
+
+
+            <div class="github-stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <h3 id="stars-count">--</h3>
+
+                <p>Total Stars</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- GitHub Language Stats -->
+
+    <div class="github-language-section">
+
+        <h3>My Technology Journey</h3>
+
+        <div class="language-tags">
+
+            <span>
+                <i class="fa-brands fa-python"></i>
+                Python
+            </span>
+
+            <span>
+                <i class="fa-brands fa-java"></i>
+                Java
+            </span>
+
+            <span>
+                <i class="fa-solid fa-brain"></i>
+                AI & ML
+            </span>
+
+            <span>
+                <i class="fa-solid fa-database"></i>
+                Data Analysis
+            </span>
+
+            <span>
+                <i class="fa-brands fa-html5"></i>
+                HTML
+            </span>
+
+            <span>
+                <i class="fa-brands fa-css3-alt"></i>
+                CSS
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
 
         <!-- ================= EDUCATION ================= -->
 
@@ -1655,8 +1816,7 @@
 
     <script src="script.js"></script>
     <!-- CUSTOM CURSOR -->
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
+
 
 </body>
 
