@@ -3264,3 +3264,50 @@ footer {
     transition: transform 0.2s ease;
     will-change: transform;
 }
+/* =====================================================
+   PROFESSIONAL CUSTOM CURSOR
+===================================================== */
+
+const cursorDot = document.querySelector(".cursor-dot");
+const cursorOutline = document.querySelector(".cursor-outline");
+
+if (cursorDot && cursorOutline) {
+
+    document.addEventListener("mousemove", (e) => {
+
+        cursorDot.style.left = e.clientX + "px";
+        cursorDot.style.top = e.clientY + "px";
+
+        cursorOutline.animate(
+            {
+                left: e.clientX + "px",
+                top: e.clientY + "px"
+            },
+            {
+                duration: 180,
+                fill: "forwards"
+            }
+        );
+
+    });
+
+
+    /* CURSOR HOVER EFFECT */
+
+    const hoverElements = document.querySelectorAll(
+        "a, button, .project-card, .skill-card, .certificate-card"
+    );
+
+    hoverElements.forEach((element) => {
+
+        element.addEventListener("mouseenter", () => {
+            cursorOutline.classList.add("hover");
+        });
+
+        element.addEventListener("mouseleave", () => {
+            cursorOutline.classList.remove("hover");
+        });
+
+    });
+
+}
