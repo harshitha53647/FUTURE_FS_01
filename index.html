@@ -41,6 +41,23 @@
 
 
 <body>
+    <!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+<!-- ================= PRELOADER ================= -->
+
+<div id="preloader">
+
+    <div class="loader-content">
+
+        <h1>Harshitha G</h1>
+
+        <div class="loader-line"></div>
+
+        <p>Loading Portfolio...</p>
+
+    </div>
+
+</div>
 
 
     <!-- ================= NAVBAR ================= -->
@@ -50,7 +67,7 @@
         <nav class="navbar">
 
             <a href="#home" class="logo">
-                 Harshitha.G
+                Harshitha.G
             </a>
 
 
@@ -119,20 +136,16 @@
                     </p>
 
 
+                    <!-- NAME WILL STAY ON ONE LINE -->
+
                     <h1>
-                        Harshitha G
+                        Harshitha&nbsp;G
                     </h1>
 
-
-                    <h2>
-
-                        CSE-AIML Student &
-
-                        <span>
-                            Technology Enthusiast
-                        </span>
-
-                    </h2>
+<h2>
+    I'm a
+    <span id="typing-text"></span>
+</h2>
 
 
                     <p class="hero-description">
@@ -208,19 +221,18 @@
 
                 <!-- ================= PROFILE PHOTO ================= -->
 
-         <div class="hero-image">
+                <div class="hero-image">
 
-    <div class="profile-box">
+                    <div class="profile-circle">
 
-        <img 
-            src="profile.jpeg" 
-            alt="Harshitha G"
-            class="profile-photo"
-        >
+                        <img
+                            src="profile.jpeg"
+                            alt="Harshitha G">
 
-    </div>
+                    </div>
 
-</div>
+                </div>
+
 
             </div>
 
@@ -248,7 +260,7 @@
             <div class="about-container">
 
 
-                <div class="about-image">
+                <div class="about-image reveal-left">
 
                     <div class="about-box">
 
@@ -268,7 +280,7 @@
 
 
 
-                <div class="about-text">
+                <div class="about-text reveal-right">
 
                     <h3>
                         Turning ideas into practical solutions.
@@ -357,330 +369,440 @@
 
         <!-- ================= SKILLS ================= -->
 
-        <section class="section skills" id="skills">
+      
 
-            <div class="section-title">
+               <!-- ================= SKILLS ================= -->
 
-                <p>
-                    What I Work With
-                </p>
+<section class="section skills" id="skills">
 
-                <h2>
-                    My <span>Skills</span>
-                </h2>
+    <div class="section-title">
+
+        <p>What I Work With</p>
+
+        <h2>
+            My <span>Skills</span>
+        </h2>
+
+    </div>
+
+
+    <div class="skills-progress-container">
+
+
+        <!-- Python -->
+
+        <div class="skill-progress-card">
+
+            <div class="skill-progress-header">
+
+                <div>
+
+                    <i class="fab fa-python"></i>
+
+                    <span>Python</span>
+
+                </div>
+
+                <span class="percentage">75%</span>
 
             </div>
 
+            <div class="progress-bar">
 
-            <div class="skills-grid">
-
-
-                <!-- Python -->
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-
-                        <i class="fab fa-python"></i>
-
-                    </div>
-
-                    <h3>
-                        Python
-                    </h3>
-
-                    <p>
-                        Basic
-                    </p>
-
-                </div>
-
-
-
-                <!-- Java -->
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-
-                        <i class="fab fa-java"></i>
-
-                    </div>
-
-                    <h3>
-                        Java
-                    </h3>
-
-                    <p>
-                        Programming & OOP
-                    </p>
-
-                </div>
-
-
-
-                <!-- HTML -->
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-
-                        <i class="fab fa-html5"></i>
-
-                    </div>
-
-                    <h3>
-                        HTML
-                    </h3>
-
-                    <p>
-                        Basic
-                    </p>
-
-                </div>
-
-
-
-                <!-- Figma -->
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-
-                        <i class="fab fa-figma"></i>
-
-                    </div>
-
-                    <h3>
-                        Figma
-                    </h3>
-
-                    <p>
-                        UI/UX Design
-                    </p>
-
-                </div>
-
-
-
-                <!-- Power BI -->
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-
-                        <i class="fas fa-chart-column"></i>
-
-                    </div>
-
-                    <h3>
-                        Power BI
-                    </h3>
-
-                    <p>
-                        Basic
-                    </p>
-
-                </div>
+                <div class="progress-fill" data-progress="75"></div>
 
             </div>
 
-        </section>
+            <p>Programming Fundamentals</p>
+
+        </div>
+
+
+
+        <!-- Java -->
+
+        <div class="skill-progress-card">
+
+            <div class="skill-progress-header">
+
+                <div>
+
+                    <i class="fab fa-java"></i>
+
+                    <span>Java</span>
+
+                </div>
+
+                <span class="percentage">70%</span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill" data-progress="70"></div>
+
+            </div>
+
+            <p>Programming & OOP</p>
+
+        </div>
+
+
+
+        <!-- HTML -->
+
+        <div class="skill-progress-card">
+
+            <div class="skill-progress-header">
+
+                <div>
+
+                    <i class="fab fa-html5"></i>
+
+                    <span>HTML</span>
+
+                </div>
+
+                <span class="percentage">85%</span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill" data-progress="85"></div>
+
+            </div>
+
+            <p>Web Structure & Development</p>
+
+        </div>
+
+
+
+        <!-- Figma -->
+
+        <div class="skill-progress-card">
+
+            <div class="skill-progress-header">
+
+                <div>
+
+                    <i class="fab fa-figma"></i>
+
+                    <span>Figma</span>
+
+                </div>
+
+                <span class="percentage">70%</span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill" data-progress="70"></div>
+
+            </div>
+
+            <p>UI/UX Design</p>
+
+        </div>
+
+
+
+        <!-- Power BI -->
+
+        <div class="skill-progress-card">
+
+            <div class="skill-progress-header">
+
+                <div>
+
+                    <i class="fas fa-chart-column"></i>
+
+                    <span>Power BI</span>
+
+                </div>
+
+                <span class="percentage">65%</span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill" data-progress="65"></div>
+
+            </div>
+
+            <p>Data Visualization</p>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
 
         <!-- ================= PROJECTS ================= -->
 
-        <section class="section projects" id="projects">
+        
+<!-- ================= PROJECTS ================= -->
 
-            <div class="section-title">
+<section class="section projects" id="projects">
 
-                <p>
-                    My Recent Work
-                </p>
+    <div class="section-title">
 
-                <h2>
-                    Featured <span>Projects</span>
-                </h2>
+        <p>My Recent Work</p>
+
+        <h2>
+            Featured <span>Projects</span>
+        </h2>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <!-- ================= PROJECT 1 ================= -->
+
+        <article class="project-card featured-project">
+
+            <div class="featured-badge">
+                <i class="fas fa-star"></i>
+                Featured
+            </div>
+
+
+            <!-- PROJECT PREVIEW -->
+
+            <div class="project-preview voice-preview">
+
+                <i class="fas fa-microphone-lines"></i>
+
+                <span>Voice4Blind</span>
 
             </div>
 
 
-            <div class="projects-grid">
+            <div class="project-content">
+
+                <div class="project-number">
+                    01
+                </div>
 
 
-                <!-- PROJECT 1 -->
-
-                <article class="project-card">
-
-                    <div class="project-number">
-                        01
-                    </div>
+                <h3>
+                    Voice4Blind AI Assistant
+                </h3>
 
 
-                    <div class="project-icon">
+                <p>
 
-                        <i class="fas fa-microphone-lines"></i>
+                    A voice-based AI assistant designed to help visually
+                    impaired learners access, read and summarize educational
+                    documents through voice interaction.
 
-                    </div>
-
-
-                    <h3>
-                        Voice4Blind AI Assistant
-                    </h3>
+                </p>
 
 
-                    <p>
+                <div class="tech-tags">
 
-                        A voice-based AI assistant designed to help
-                        visually impaired learners access and summarize
-                        educational documents through voice interaction.
+                    <span>Python</span>
+                    <span>NLP</span>
+                    <span>Speech Recognition</span>
+                    <span>Streamlit</span>
 
-                    </p>
+                </div>
 
 
-                    <div class="tech-tags">
+                <div class="project-buttons">
 
-                        <span>Python</span>
+                    <a href="https://github.com/harshitha53647"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-btn github-btn">
 
-                        <span>NLP</span>
+                        <i class="fab fa-github"></i>
 
-                        <span>Speech Recognition</span>
+                        GitHub
 
-                        <span>Streamlit</span>
-
-                    </div>
+                    </a>
 
 
                     <a href="#contact"
-                        class="project-link">
-
-                        Discuss Project
-
-                        <i class="fas fa-arrow-right"></i>
-
-                    </a>
-
-                </article>
-
-
-
-                <!-- PROJECT 2 -->
-
-                <article class="project-card">
-
-                    <div class="project-number">
-                        02
-                    </div>
-
-
-                    <div class="project-icon">
-
-                        <i class="fas fa-scale-balanced"></i>
-
-                    </div>
-
-
-                    <h3>
-                        AI Fairness Analyzer
-                    </h3>
-
-
-                    <p>
-
-                        A Streamlit application that analyzes fairness
-                        in machine learning predictions using demographic
-                        and equal opportunity based metrics.
-
-                    </p>
-
-
-                    <div class="tech-tags">
-
-                        <span>Python</span>
-
-                        <span>Pandas</span>
-
-                        <span>Scikit-learn</span>
-
-                        <span>Streamlit</span>
-
-                    </div>
-
-
-                    <a href="https://github.com/harshitha53647/AI-Farirness-Checker"
-                        class="project-link"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        View Project
+                        class="project-btn demo-btn">
 
                         <i class="fas fa-arrow-up-right-from-square"></i>
 
-                    </a>
-
-                </article>
-
-
-
-                <!-- PROJECT 3 -->
-
-                <article class="project-card">
-
-                    <div class="project-number">
-                        03
-                    </div>
-
-
-                    <div class="project-icon">
-
-                        <i class="fas fa-person-cane"></i>
-
-                    </div>
-
-
-                    <h3>
-                        Smart Blind Stick
-                    </h3>
-
-
-                    <p>
-
-                        An IoT-based assistive device that detects
-                        obstacles and water using sensors and provides
-                        alerts through a buzzer and vibration motor.
-
-                    </p>
-
-
-                    <div class="tech-tags">
-
-                        <span>Arduino</span>
-
-                        <span>Ultrasonic Sensor</span>
-
-                        <span>IoT</span>
-
-                    </div>
-
-
-                    <a href="https://github.com/harshitha53647/Smart-Blind-Stick"
-                        class="project-link"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        View Project
-
-                        <i class="fas fa-arrow-up-right-from-square"></i>
+                        Live Demo
 
                     </a>
 
-                </article>
+                </div>
 
             </div>
 
-        </section>
+        </article>
 
+
+
+        <!-- ================= PROJECT 2 ================= -->
+
+        <article class="project-card">
+
+            <!-- PROJECT PREVIEW -->
+
+            <div class="project-preview fairness-preview">
+
+                <i class="fas fa-scale-balanced"></i>
+
+                <span>AI Fairness</span>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-number">
+                    02
+                </div>
+
+
+                <h3>
+                    AI Fairness Analyzer
+                </h3>
+
+
+                <p>
+
+                    A Streamlit application that analyzes fairness in
+                    machine learning predictions using demographic parity,
+                    disparate impact and equal opportunity metrics.
+
+                </p>
+
+
+                <div class="tech-tags">
+
+                    <span>Python</span>
+                    <span>Pandas</span>
+                    <span>Scikit-learn</span>
+                    <span>Streamlit</span>
+
+                </div>
+
+
+                <div class="project-buttons">
+
+                    <a href="https://github.com/harshitha53647/AI-Farirness-Checker"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-btn github-btn">
+
+                        <i class="fab fa-github"></i>
+
+                        GitHub
+
+                    </a>
+
+
+                    <a href="#contact"
+                        class="project-btn demo-btn">
+
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+
+                        Live Demo
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ================= PROJECT 3 ================= -->
+
+        <article class="project-card">
+
+            <!-- PROJECT PREVIEW -->
+
+            <div class="project-preview blind-preview">
+
+                <i class="fas fa-person-cane"></i>
+
+                <span>Smart Blind Stick</span>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-number">
+                    03
+                </div>
+
+
+                <h3>
+                    Smart Blind Stick
+                </h3>
+
+
+                <p>
+
+                    An IoT-based assistive device that detects obstacles
+                    and water using sensors and provides alerts through
+                    a buzzer and vibration motor.
+
+                </p>
+
+
+                <div class="tech-tags">
+
+                    <span>Arduino</span>
+                    <span>Ultrasonic Sensor</span>
+                    <span>IoT</span>
+
+                </div>
+
+
+                <div class="project-buttons">
+
+                    <a href="https://github.com/harshitha53647/Smart-Blind-Stick"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-btn github-btn">
+
+                        <i class="fab fa-github"></i>
+
+                        GitHub
+
+                    </a>
+
+
+                    <a href="#contact"
+                        class="project-btn demo-btn">
+
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+
+                        Live Demo
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
 
 
         <!-- ================= EDUCATION ================= -->
@@ -749,124 +871,486 @@
 
 
         <!-- ================= CERTIFICATIONS ================= -->
-<!-- ================= CERTIFICATIONS ================= -->
+        <!-- ================= CERTIFICATIONS ================= -->
 
 <section class="section certifications" id="certifications">
 
     <div class="section-title">
+
         <p>Learning & Achievements</p>
-        <h2>My <span>Certifications</span></h2>
+
+        <h2>
+            My <span>Certifications</span>
+        </h2>
+
     </div>
+
+
+    <p class="certification-intro">
+
+        A collection of certifications, job simulations, competitions
+        and learning experiences that reflect my continuous journey
+        of learning and professional growth.
+
+    </p>
+
 
     <div class="certifications-grid">
 
-        <!-- Certification 1 -->
-        <div class="certification-card">
-            <div class="certification-icon">
-                <i class="fas fa-robot"></i>
-            </div>
-            <div>
-                <h3>Introduction to Modern AI</h3>
-                <p>Cisco Networking Academy</p>
-            </div>
-        </div>
 
-        <!-- Certification 2 -->
-        <div class="certification-card">
-            <div class="certification-icon">
-                <i class="fas fa-chart-line"></i>
-            </div>
-            <div>
-                <h3>Data Analytics Job Simulation</h3>
-                <p>Deloitte through Forage</p>
-            </div>
-        </div>
+        <!-- CERTIFICATE 1 -->
 
-        <!-- Certification 3 -->
-        <div class="certification-card">
-            <div class="certification-icon">
-                <i class="fas fa-cloud"></i>
-            </div>
-            <div>
-                <h3>Solutions Architecture Job Simulation</h3>
-                <p>AWS through Forage</p>
-            </div>
-        </div>
+        <article class="certificate-card">
 
-        <!-- Certification 4 -->
-        <div class="certification-card">
-            <div class="certification-icon">
-                <i class="fab fa-python"></i>
-            </div>
-            <div>
-                <h3>Python (Basic)</h3>
-                <p>HackerRank</p>
-            </div>
-        </div>
+            <div class="certificate-image">
 
-        <!-- Certification 5 -->
-        <div class="certification-card">
-            <div class="certification-icon">
-                <i class="fas fa-shield-halved"></i>
-            </div>
-            <div>
-                <h3>Cyber Job Simulation</h3>
-                <p>Deloitte through Forage</p>
-            </div>
-        </div>
+                <img src="unstopquiz.jpeg"
+                    alt="QuizOff 2026 Certificate">
 
-        <!-- Certification 6 -->
-        <div class="certification-card">
-            <div class="certification-icon">
-                <i class="fas fa-trophy"></i>
-            </div>
-            <div>
-                <h3>Solution Challenge 2026: Build with AI</h3>
-                <p>Certificate of Participation</p>
-            </div>
-        </div>
+                <div class="certificate-overlay">
 
-        <!-- Certification 7 -->
-        <div class="certification-card">
-            <div class="certification-icon">
-                <i class="fas fa-award"></i>
-            </div>
-            <div>
-                <h3>PREXPO-1.4</h3>
-                <p>Certificate of Participation</p>
-            </div>
-        </div>
+                    <i class="fas fa-eye"></i>
 
-        <!-- Certification 8 -->
-        <div class="certification-card">
-            <div class="certification-icon">
-                <i class="fas fa-brain"></i>
-            </div>
-            <div>
-                <h3>QuizOff 2026</h3>
-                <p>India's Biggest AI Quiz</p>
-            </div>
-        </div>
+                </div>
 
-        <!-- Certification 9 -->
-        <div class="certification-card">
-            <div class="certification-icon">
-                <i class="fas fa-network-wired"></i>
             </div>
-            <div>
-                <h3>CyberOps Associate</h3>
-                <p>Cisco Networking Academy</p>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fas fa-brain"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        QuizOff 2026
+                    </h3>
+
+                    <p>
+                        India's Biggest AI Quiz
+                    </p>
+
+                </div>
+
             </div>
-        </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 2 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <img src="cyberops.jpeg"
+                    alt="CyberOps Associate Certificate">
+
+                <div class="certificate-overlay">
+
+                    <i class="fas fa-eye"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fas fa-shield-halved"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        CyberOps Associate
+                    </h3>
+
+                    <p>
+                        Cisco Networking Academy
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 3 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <img src="solutionchallenge.jpeg"
+                    alt="Solution Challenge Certificate">
+
+                <div class="certificate-overlay">
+
+                    <i class="fas fa-eye"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fas fa-robot"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Solution Challenge 2026
+                    </h3>
+
+                    <p>
+                        Build With AI
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 4 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <img src="preexpo.jpeg"
+                    alt="PREXPO Certificate">
+
+                <div class="certificate-overlay">
+
+                    <i class="fas fa-eye"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fas fa-trophy"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        PREXPO 1.4
+                    </h3>
+
+                    <p>
+                        Certificate of Participation
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 5 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <img src="introductinmodernai.jpeg"
+                    alt="Introduction to Modern AI Certificate">
+
+                <div class="certificate-overlay">
+
+                    <i class="fas fa-eye"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fas fa-robot"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Introduction to Modern AI
+                    </h3>
+
+                    <p>
+                        Cisco Networking Academy
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 6 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <img src="pythonhack.jpeg"
+                    alt="Python Basic Certificate">
+
+                <div class="certificate-overlay">
+
+                    <i class="fas fa-eye"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fab fa-python"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Python (Basic)
+                    </h3>
+
+                    <p>
+                        HackerRank Skill Certification
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 7 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <img src="cyberjob.jpeg"
+                    alt="Cyber Job Simulation Certificate">
+
+                <div class="certificate-overlay">
+
+                    <i class="fas fa-eye"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fas fa-user-shield"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Cyber Job Simulation
+                    </h3>
+
+                    <p>
+                        Deloitte through Forage
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 8 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <img src="dataana.jpeg"
+                    alt="Data Analytics Job Simulation Certificate">
+
+                <div class="certificate-overlay">
+
+                    <i class="fas fa-eye"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fas fa-chart-line"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Data Analytics Job Simulation
+                    </h3>
+
+                    <p>
+                        Deloitte through Forage
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 9 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <img src="solutionarc.jpeg"
+                    alt="Solutions Architecture Certificate">
+
+                <div class="certificate-overlay">
+
+                    <i class="fas fa-cloud"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fas fa-cloud"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Solutions Architecture
+                    </h3>
+
+                    <p>
+                        AWS through Forage
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 10 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <img src="hackx.jpeg"
+                    alt="HackX Amrita Certificate">
+
+                <div class="certificate-overlay">
+
+                    <i class="fas fa-code"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <div class="certificate-icon">
+
+                    <i class="fas fa-laptop-code"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        HACK X AMRITA 2.0
+                    </h3>
+
+                    <p>
+                        Hackathon Participation
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
 
     </div>
 
 </section>
-        
-
-
-
-        <!-- ================= RESUME ================= -->
+       <!-- ================= RESUME ================= -->
 
         <section class="resume-section">
 
@@ -899,8 +1383,7 @@
 
         <!-- ================= CONTACT ================= -->
 
-        <section class="section contact"
-            id="contact">
+        <section class="section contact" id="contact">
 
             <div class="section-title">
 
@@ -1051,7 +1534,6 @@
                     </div>
 
 
-
                     <input type="text"
                         id="subject"
                         name="subject"
@@ -1059,13 +1541,11 @@
                         required>
 
 
-
                     <textarea id="message"
                         name="message"
                         rows="7"
                         placeholder="Your Message"
                         required></textarea>
-
 
 
                     <button type="submit"
@@ -1149,10 +1629,32 @@
     </footer>
 
 
+<!-- Certificate Popup -->
 
-    <!-- JavaScript -->
+<div class="certificate-modal" id="certificate-modal">
+
+    <div class="modal-container">
+
+        <button class="modal-close" id="modal-close">
+            <i class="fas fa-xmark"></i>
+        </button>
+
+        <img src="" alt="Certificate" id="modal-image">
+
+    </div>
+
+</div>
+   <!-- ================= BACK TO TOP ================= -->
+
+<button id="back-to-top" aria-label="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+ <!-- JavaScript -->
 
     <script src="script.js"></script>
+    <!-- CUSTOM CURSOR -->
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
 
 </body>
 
