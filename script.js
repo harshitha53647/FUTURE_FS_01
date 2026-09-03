@@ -923,3 +923,109 @@ counters.forEach((counter) => {
     counterObserver.observe(counter);
 
 });
+/* =========================================
+   PROJECT SCREENSHOT POPUP
+========================================= */
+
+const projectModal =
+    document.getElementById("project-modal");
+
+const projectModalImage =
+    document.getElementById("project-modal-image");
+
+const projectModalClose =
+    document.getElementById("project-modal-close");
+
+
+/* Open Project Screenshot */
+
+document.querySelectorAll(".project-clickable").forEach(card => {
+
+    card.addEventListener("click", (event) => {
+
+        /*
+         * Do not open popup when clicking
+         * GitHub or Live Demo buttons.
+         */
+
+        if (event.target.closest("a")) {
+            return;
+        }
+
+        const imagePath =
+            card.getAttribute("data-project-image");
+
+        if (
+            imagePath &&
+            projectModal &&
+            projectModalImage
+        ) {
+
+            projectModalImage.src = imagePath;
+
+            projectModal.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+        }
+
+    });
+
+});
+
+
+/* Close Button */
+
+if (projectModalClose && projectModal) {
+
+    projectModalClose.addEventListener("click", () => {
+
+        projectModal.classList.remove("active");
+
+        projectModalImage.src = "";
+
+        document.body.style.overflow = "auto";
+
+    });
+
+}
+
+
+/* Close when clicking outside */
+
+if (projectModal) {
+
+    projectModal.addEventListener("click", (event) => {
+
+        if (event.target === projectModal) {
+
+            projectModal.classList.remove("active");
+
+            projectModalImage.src = "";
+
+            document.body.style.overflow = "auto";
+
+        }
+
+    });
+
+}
+
+
+/* Close using ESC */
+
+document.addEventListener("keydown", (event) => {
+
+    if (
+        event.key === "Escape" &&
+        projectModal
+    ) {
+
+        projectModal.classList.remove("active");
+
+        projectModalImage.src = "";
+
+        document.body.style.overflow = "auto";
+
+    }
+
+});
